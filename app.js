@@ -1,21 +1,19 @@
-"use strict";
-
 var express = require('express'),
     sys = require('sys'),
     util = require('util'),
     OAuth = require('oauth').OAuth,
     fs = require('fs');
 
-var app = module.exports = express();
+var app = module.exports = express.createServer()
 
-// app.configure('development', function() {
-    // app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
-    // app.use(express.logger());
-    // app.use(express.cookieParser());
-    // app.use(express.session({ secret: "ssshhhh!" }));
-// });
+app.configure('development', function() {
+    app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
+    app.use(express.logger());
+    app.use(express.cookieParser());
+    app.use(express.session({ secret: "ssshhhh!" }));
+});
 
-var configFile = "./config.js";
+var configFile = process.env['HOME'] + "/config.js";
 var config = require(configFile);
 
 var privateKeyData = fs.readFileSync(config["consumerPrivateKeyFile"], "utf8");
@@ -83,4 +81,4 @@ app.get('/sessions/callback', function(request, response) {
     )
 });
 
-app.listen(3000 || 8080);
+app.listen(parseInt(process.env.PORT || 8080));

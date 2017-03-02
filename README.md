@@ -1,4 +1,4 @@
-Simulate oath for Jira.
+Experiments with oath for Jira.
 
 **Usage:**
 
