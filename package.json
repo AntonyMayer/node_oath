@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/AntonyMayer/node_oath#readme",
   "dependencies": {
-    "express": "^4.15.0",
+    "express": "<3.0.0",
     "fs": "0.0.1-security",
     "oauth": "^0.9.15",
     "sys": "0.0.1",

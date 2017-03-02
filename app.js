@@ -13,7 +13,7 @@ app.configure('development', function() {
     app.use(express.session({ secret: "ssshhhh!" }));
 });
 
-var configFile = process.env['HOME'] + "/config.js";
+var configFile = "./config.js";
 var config = require(configFile);
 
 var privateKeyData = fs.readFileSync(config["consumerPrivateKeyFile"], "utf8");
@@ -36,7 +36,7 @@ app.dynamicHelpers({
 });
 
 app.get('/', function(request, response) {
-    response.send('Hello World');
+    response.send('checking');
 });
 
 app.get('/sessions/connect', function(request, response) {
@@ -81,4 +81,5 @@ app.get('/sessions/callback', function(request, response) {
     )
 });
 
+console.log('Listening at port: ' + (process.env.PORT ? process.env.PORT : 8080));
 app.listen(parseInt(process.env.PORT || 8080));
