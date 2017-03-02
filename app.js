@@ -1,10 +1,13 @@
+"use strict";
+
 var express = require('express'),
+	http = require('http'),
     sys = require('sys'),
     util = require('util'),
     OAuth = require('oauth').OAuth,
     fs = require('fs');
 
-var app = module.exports = express.createServer()
+var app = module.exports = express();
 
 app.configure('development', function() {
     app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
@@ -81,4 +84,4 @@ app.get('/sessions/callback', function(request, response) {
     )
 });
 
-app.listen(parseInt(process.env.PORT || 8080));
+server.listen(parseInt(process.env.PORT || 8080));
