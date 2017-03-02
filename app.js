@@ -19,8 +19,8 @@ var config = require(configFile);
 var privateKeyData = fs.readFileSync(config["consumerPrivateKeyFile"], "utf8");
 
 var consumer =
-    new OAuth("https://jdog.atlassian.com/plugins/servlet/oauth/request-token",
-        "https://jdog.atlassian.com/plugins/servlet/oauth/access-token",
+    new OAuth("https://track.designory.com:8443/plugins/servlet/oauth/request-token",
+        "https://track.designory.com:8443/plugins/servlet/oauth/access-token",
         config["consumerKey"],
         "",
         "1.0",
@@ -48,7 +48,7 @@ app.get('/sessions/connect', function(request, response) {
             } else {
                 request.session.oauthRequestToken = oauthToken;
                 request.session.oauthRequestTokenSecret = oauthTokenSecret;
-                response.redirect("https://jdog.atlassian.com/plugins/servlet/oauth/authorize?oauth_token=" + request.session.oauthRequestToken);
+                response.redirect("https://track.designory.com:8443/plugins/servlet/oauth/authorize?oauth_token=" + request.session.oauthRequestToken);
             }
         }
     )
@@ -66,7 +66,7 @@ app.get('/sessions/callback', function(request, response) {
             } else {
                 request.session.oauthAccessToken = oauthAccessToken;
                 request.session.oauthAccessTokenSecret = oauthAccessTokenSecret;
-                consumer.get("https://jdog.atlassian.com/rest/api/latest/issue/JRADEV-8110.json",
+                consumer.get("https://track.designory.com:8443/rest/api/latest/issue/JRADEV-8110.json",
                     request.session.oauthAccessToken,
                     request.session.oauthAccessTokenSecret,
                     "application/json",
