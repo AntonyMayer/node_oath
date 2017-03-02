@@ -1,0 +1,30 @@
+{
+  "name": "jira-oath-node",
+  "version": "1.0.0",
+  "description": "Simulate Jira Oauth",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AntonyMayer/node_oath.git"
+  },
+  "keywords": [
+    "jira",
+    "oauth"
+  ],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AntonyMayer/node_oath/issues"
+  },
+  "homepage": "https://github.com/AntonyMayer/node_oath#readme",
+  "dependencies": {
+    "express": "^4.15.0",
+    "fs": "0.0.1-security",
+    "oauth": "^0.9.15",
+    "sys": "0.0.1",
+    "util": "^0.10.3"
+  }
+}
