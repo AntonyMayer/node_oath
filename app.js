@@ -1,3 +1,5 @@
+"use strict";
+
 var express = require('express'),
     sys = require('sys'),
     util = require('util'),
